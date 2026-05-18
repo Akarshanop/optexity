@@ -20,3 +20,9 @@ class AxtreeIndexActionFailedException(Exception):
         self.message = message
         self.index = index
         self.original_error = original_error
+
+
+class HumanInLoopTimeoutException(Exception):
+    def __init__(self, message: str):
+        super().__init__(message)
+        self.message = message

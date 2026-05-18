@@ -29,6 +29,7 @@ class Settings(BaseSettings):
     FETCH_SLACK_MESSAGES_ENDPOINT: str = "api/v1/fetch_slack_messages"
     FETCH_SMS_MESSAGES_ENDPOINT: str = "api/v1/fetch_sms_messages"
     INTEGRATION_SECRETS_ENDPOINT: str = "api/v1/integration-secrets/{type}/encrypt"
+    HUMAN_IN_LOOP_ENDPOINT: str = "api/v1/human_in_loop"
 
     FERNET_SECRET_KEY: str | None = None  # required when using integration secrets
 
