@@ -41,6 +41,7 @@ from optexity.inference.core.run_misc import (
     run_sleep_action,
 )
 from optexity.inference.core.run_python_script import run_python_script_action
+from optexity.inference.core.variable_resolver import resolve_api_variables_in_node
 from optexity.inference.infra.browser import Browser
 from optexity.schema.actions.interaction_action import DownloadUrlAsPdfAction
 from optexity.schema.automation import (
@@ -331,6 +332,7 @@ async def run_action_node(
         task.secure_parameters, task.workspace_id, task.api_key
     )
     await action_node.replace_variables(memory.variables.generated_variables)
+    resolve_api_variables_in_node(action_node, memory.variables.generated_variables)
 
     # ## TODO: optimize this by taking screenshot and axtree only if needed
     # browser_state_summary = await browser.get_browser_state_summary()
