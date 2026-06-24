@@ -118,6 +118,8 @@ class Task(BaseModel):
     max_timeout_in_minutes: int = 10
     api_key: str
     callback_url: CallbackUrl | None = None
+    task_callback_url: str | None = None
+    task_callback_api_key: str | None = None
     is_dedicated: bool = False
     # Dedicated limits carried with the task when is_dedicated is set via the
     # request (no DB policy row). Ignored for non-dedicated tasks and when a

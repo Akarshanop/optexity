@@ -16,6 +16,8 @@ class InferenceRequest(BaseModel):
     is_dedicated: bool = (
         False  ## Opt into dedicated mode per-request. In cloud mode a dedicated_service DB row (admin policy) takes precedence over this flag.
     )
+    task_callback_url: str | None = None
+    task_callback_api_key: str | None = None
     # Dedicated limits used only when is_dedicated is true and no DB policy row
     # exists. max_parallelism is the service-wide cap (clamped server-side, see
     # DEDICATED_MAX_REQUEST_PARALLELISM); per_login_parallelism is how many
