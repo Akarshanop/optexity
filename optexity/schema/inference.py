@@ -24,6 +24,8 @@ class InferenceRequest(BaseModel):
     # containers a single login may use before its tasks round-robin onto them.
     max_parallelism: int = 1
     per_login_parallelism: int = 1
+    task_callback_url: str | None = None
+    task_callback_api_key: str | None = None
 
     @model_validator(mode="after")
     def validate_use_proxy(self):
